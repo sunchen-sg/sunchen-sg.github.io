@@ -70,7 +70,7 @@ img {
 .header-inner,
 .section,
 .footer-inner {
-  width: min(1080px, calc(100% - 48px));
+  width: min(1240px, calc(100% - 48px));
   margin-inline: auto;
 }
 
@@ -103,7 +103,7 @@ nav {
   align-items: center;
   gap: 24px;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
 }
 
@@ -139,8 +139,6 @@ nav a:focus-visible,
 .full-list-link:focus-visible,
 .paper-link:hover,
 .paper-link:focus-visible,
-.contact-email:hover,
-.contact-email:focus-visible,
 .back-to-top:hover,
 .back-to-top:focus-visible {
   color: var(--blue);
@@ -181,6 +179,10 @@ h2 {
   grid-template-columns: minmax(0, 1fr) 240px;
   gap: 44px;
   align-items: start;
+}
+
+.profile-sidebar {
+  width: 240px;
 }
 
 .profile-photo {
@@ -257,14 +259,15 @@ h2 {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 16px;
+  justify-content: center;
+  gap: 18px;
   margin-top: 15px;
 }
 
 .profile-links a {
   display: inline-flex;
-  width: 23px;
-  height: 23px;
+  width: 26px;
+  height: 26px;
   align-items: center;
   justify-content: center;
   color: #4d5d70;
@@ -272,36 +275,27 @@ h2 {
 }
 
 .profile-links svg {
-  width: 100%;
-  height: 100%;
+  display: block;
+  width: 22px;
+  height: 22px;
   fill: currentColor;
 }
 
-.profile-links .mail-icon {
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.8;
-}
-
 .research-metrics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 12px 0 0;
   color: var(--muted);
   font-size: 13.75px;
   line-height: 1.5;
+  text-align: center;
 }
 
 .research-metrics strong {
   color: var(--ink);
   font-size: inherit;
   font-weight: 650;
-}
-
-.metric-note {
-  margin: 4px 0 0;
-  color: var(--quiet);
-  font-size: 11px;
 }
 
 .timeline {
@@ -338,7 +332,6 @@ h2 {
 }
 
 .timeline article div .dissertation {
-  max-width: 750px;
   margin-top: 4px;
   color: #737982;
   font-size: 13px;
@@ -359,12 +352,6 @@ h2 {
   color: var(--blue);
   font-size: 14.5px;
   font-weight: 600;
-}
-
-.publication-note {
-  margin: 8px 0 20px;
-  color: var(--quiet);
-  font-size: 12px;
 }
 
 .publication-list {
@@ -391,23 +378,26 @@ h2 {
 .paper-thumb img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: fill;
+  object-position: center;
 }
 
 .paper-thumb::before {
   position: absolute;
   z-index: 2;
-  top: 7px;
-  left: 7px;
-  padding: 4px 7px;
+  top: 0;
+  left: 50%;
+  padding: 5px 9px;
   border-radius: 3px;
   background: #243a56;
   color: #fff;
   content: attr(data-badge);
-  font-size: 11.5px;
+  font-size: 12.5px;
   font-weight: 700;
   letter-spacing: 0.01em;
   line-height: 1;
+  transform: translateX(-50%);
+  white-space: nowrap;
 }
 
 .paper-thumb-pending {
@@ -424,8 +414,7 @@ h2 {
 }
 
 .paper-copy h3 {
-  max-width: 770px;
-  margin: 4px 0 8px;
+  margin: 0 0 8px;
   font-size: 20px;
   font-weight: 650;
   letter-spacing: -0.018em;
@@ -439,7 +428,6 @@ h2 {
 }
 
 .paper-authors {
-  max-width: 770px;
   margin: 0;
   color: var(--muted);
   font-size: 14px;
@@ -453,6 +441,33 @@ h2 {
   text-underline-offset: 2px;
 }
 
+.paper-authors sup {
+  font-size: 0.7em;
+  line-height: 0;
+  vertical-align: super;
+}
+
+.paper-role {
+  margin-left: 5px;
+  color: var(--quiet);
+  font-size: 12px;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.paper-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px 14px;
+  margin-top: 7px;
+}
+
+.paper-meta .paper-year {
+  font-size: 13.25px;
+  line-height: 1.35;
+}
+
 .paper-link {
   display: inline-block;
   margin-top: 7px;
@@ -461,12 +476,15 @@ h2 {
   font-weight: 600;
 }
 
+.paper-meta .paper-link {
+  margin-top: 0;
+}
+
 .paper-link-pending {
   color: var(--quiet);
 }
 
 .service-entry {
-  max-width: 760px;
   margin-top: 25px;
 }
 
@@ -475,60 +493,36 @@ h2 {
   font-size: 17px;
 }
 
-.service-entry > p:last-child {
-  margin: 7px 0 0;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.activities-section {
-  border-bottom: 0;
-}
-
-.contact-section {
-  border-bottom: 0;
-  padding-block: 42px 46px;
-}
-
-.contact-grid {
+.journal-list {
   display: grid;
-  grid-template-columns: minmax(280px, 1fr) minmax(260px, 0.75fr);
-  gap: 48px;
-  align-items: start;
-  margin-top: 22px;
-}
-
-.contact-grid p {
-  margin: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px 48px;
+  margin: 10px 0 0;
+  padding: 0;
   color: var(--muted);
   font-size: 14px;
+  line-height: 1.45;
+  list-style: none;
 }
 
-.contact-grid .contact-name {
-  margin-bottom: 4px;
-  color: var(--ink);
-  font-size: 16px;
-  font-weight: 650;
+.journal-list li {
+  position: relative;
+  padding-left: 15px;
 }
 
-.contact-email {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.35;
+.journal-list li::before {
+  position: absolute;
+  top: 0.66em;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--blue);
+  content: "";
 }
 
-.contact-email span {
-  color: var(--quiet);
-  font-size: 10px;
-  font-weight: 650;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.contact-email strong {
-  margin-top: 2px;
-  font-size: 14px;
-  font-weight: 600;
+.background-section {
+  border-bottom: 0;
 }
 
 footer {
@@ -585,6 +579,10 @@ a:focus-visible {
     gap: 30px;
   }
 
+  .profile-sidebar {
+    width: 220px;
+  }
+
   .profile-photo {
     width: 220px;
     height: 266px;
@@ -610,7 +608,7 @@ a:focus-visible {
     width: 100%;
     justify-content: space-between;
     gap: 10px;
-    font-size: 11.5px;
+    font-size: 12px;
     overflow-x: auto;
     scrollbar-width: none;
   }
@@ -660,6 +658,10 @@ a:focus-visible {
   .profile-photo {
     width: 200px;
     height: 250px;
+  }
+
+  .profile-sidebar {
+    width: 200px;
     order: 2;
   }
 
@@ -679,23 +681,11 @@ a:focus-visible {
     order: 4;
   }
 
-  .profile-links {
-    order: 5;
-  }
-
-  .research-metrics {
-    order: 6;
-  }
-
-  .metric-note {
-    order: 7;
-  }
-
   .profile-copy h1 {
     font-size: 43px;
   }
 
-.profile-meta {
+  .profile-meta {
     margin-top: 7px;
     font-size: 14.5px;
   }
@@ -704,8 +694,7 @@ a:focus-visible {
     margin-top: 18px;
   }
 
-  .timeline article,
-  .contact-grid {
+  .timeline article {
     grid-template-columns: 1fr;
   }
 
@@ -713,8 +702,9 @@ a:focus-visible {
     gap: 2px;
   }
 
-  .contact-grid {
-    gap: 18px;
+  .journal-list {
+    grid-template-columns: 1fr;
+    gap: 7px;
   }
 
   .publication {
@@ -740,12 +730,16 @@ a:focus-visible {
 
 @media (max-width: 390px) {
   nav {
-    font-size: 10.5px;
+    font-size: 11.5px;
   }
 
   .profile-photo {
     width: 195px;
     height: 244px;
+  }
+
+  .profile-sidebar {
+    width: 195px;
   }
 
   .profile-copy h1 {

@@ -5,6 +5,16 @@
     .map((link) => document.querySelector(link.getAttribute("href")))
     .filter(Boolean);
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let requestedSectionId;
+
+  const setActiveLink = (current) => {
+    navLinks.forEach((link) => {
+      const active = link.getAttribute("href") === `#${current}`;
+      link.classList.toggle("is-active", active);
+      if (active) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
+  };
 
   const cleanUrl = () => {
     try {
@@ -28,6 +38,10 @@
         if (!target) return;
 
         event.preventDefault();
+        if (navLinks.includes(link)) {
+          requestedSectionId = target.id;
+          setActiveLink(requestedSectionId);
+        }
         window.scrollTo({
           top: destinationFor(target),
           behavior: reducedMotion.matches ? "auto" : "smooth",
@@ -45,12 +59,9 @@
       if (section.getBoundingClientRect().top <= threshold) current = section.id;
     });
 
-    navLinks.forEach((link) => {
-      const active = link.getAttribute("href") === `#${current}`;
-      link.classList.toggle("is-active", active);
-      if (active) link.setAttribute("aria-current", "location");
-      else link.removeAttribute("aria-current");
-    });
+    const atPageEnd = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+    if (atPageEnd) current = sections.at(-1)?.id;
+    setActiveLink(requestedSectionId ?? current);
   };
 
   const queueActiveUpdate = () => {
@@ -63,6 +74,19 @@
 
   window.addEventListener("scroll", queueActiveUpdate, { passive: true });
   window.addEventListener("resize", queueActiveUpdate);
+
+  const resumeScrollTracking = () => {
+    requestedSectionId = undefined;
+    queueActiveUpdate();
+  };
+
+  window.addEventListener("wheel", resumeScrollTracking, { passive: true });
+  window.addEventListener("touchstart", resumeScrollTracking, { passive: true });
+  window.addEventListener("keydown", (event) => {
+    if (["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End", " "].includes(event.key)) {
+      resumeScrollTracking();
+    }
+  });
 
   const alignHashTarget = () => {
     if (!window.location.hash) return;
