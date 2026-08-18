@@ -178,7 +178,7 @@ h2 {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 320px;
   gap: 24px;
-  align-items: start;
+  align-items: end;
 }
 
 .profile-sidebar {
@@ -588,6 +588,20 @@ h2 {
   border-top: 1px solid var(--line);
 }
 
+.publication-group-title {
+  margin: 0;
+  padding: 25px 0 11px;
+  color: var(--blue);
+  font-size: 18px;
+  font-weight: 650;
+  letter-spacing: -0.012em;
+  line-height: 1.35;
+}
+
+.publication-group-title:first-child {
+  padding-top: 19px;
+}
+
 .publication {
   display: grid;
   grid-template-columns: 232px minmax(0, 1fr);
@@ -709,6 +723,7 @@ h2 {
 }
 
 .paper-meta .paper-link {
+  flex-basis: 100%;
   margin-top: 0;
 }
 
@@ -1119,6 +1134,11 @@ a:focus-visible {
 
   .paper-copy h3 {
     font-size: 19.5px;
+  }
+
+  .publication-group-title {
+    padding: 22px 0 9px;
+    font-size: 17.5px;
   }
 
   .footer-inner {
