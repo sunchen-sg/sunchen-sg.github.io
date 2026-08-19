@@ -237,6 +237,20 @@ h2 {
   margin: 0 0 9px;
 }
 
+.conference-link {
+  color: var(--blue);
+  text-decoration: underline;
+  text-decoration-color: rgba(183, 101, 64, 0.7);
+  text-underline-offset: 3px;
+  transition: color 160ms ease, text-decoration-color 160ms ease;
+}
+
+.conference-link:hover,
+.conference-link:focus-visible {
+  color: var(--orange);
+  text-decoration-color: currentColor;
+}
+
 .about-copy p,
 .service-entry > p:not(.activity-label),
 .timeline .dissertation {
@@ -768,6 +782,17 @@ h2 {
   content: "";
 }
 
+.journal-list a {
+  text-underline-offset: 3px;
+  transition: color 160ms ease;
+}
+
+.journal-list a:hover,
+.journal-list a:focus-visible {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
 .background-section {
   border-bottom: 0;
 }
@@ -824,6 +849,7 @@ a:focus-visible {
   .profile-grid {
     grid-template-columns: minmax(0, 1fr) 280px;
     gap: 24px;
+    align-items: start;
   }
 
   .profile-sidebar {
