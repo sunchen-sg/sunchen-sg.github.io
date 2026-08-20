@@ -18,7 +18,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png" />
-    <link rel="stylesheet" href="./styles.css?v=20260819r22" />
+    <link rel="stylesheet" href="./styles.css?v=20260820r25" />
     <script src="./assets/js/main.js?v=20260818" defer></script>
   </head>
   <body>
@@ -83,7 +83,8 @@
           <h2 id="research-title">Research</h2>
           <p class="research-intro">My research centers on BEOL-compatible oxide-semiconductor and ferroelectric devices for monolithic 3D integration, high-density memory, and compute-in-memory, connecting device innovation with physical understanding, predictive modeling, and hardware implementation.</p>
 
-          <div class="research-roadmap" role="group" aria-label="Research roadmap from a common materials and platform foundation through three parallel research thrusts to device, array, and monolithic 3D systems">
+          <!-- Temporarily hidden for the Scheme B research-layout experiment. -->
+          <div class="research-roadmap" role="group" aria-label="Research roadmap from a common materials and platform foundation through three parallel research thrusts to device, array, and monolithic 3D systems" hidden>
             <div class="roadmap-node roadmap-foundation">
               <h3>BEOL-Compatible Oxide Semiconductors + Ferroelectrics</h3>
               <p>IGZO · ZnO · In<sub>2</sub>O<sub>3</sub> · HZO</p>
@@ -125,20 +126,35 @@
           </div>
 
           <div class="research-themes" aria-label="Current research themes">
-            <article class="research-theme">
-              <p class="research-number">01</p>
-              <h3>Oxide-Semiconductor Devices &amp; 3D Ferroelectric Memory</h3>
-              <p>My research develops BEOL-compatible oxide-semiconductor devices and ferroelectric memories using IGZO, ZnO, and In<sub>2</sub>O<sub>3</sub> channels. My work spans high-performance FETs, planar OS FeFETs, and 3D ferroelectric vertical NAND, with emphasis on memory-window engineering, device scaling, endurance, and monolithic 3D integration.</p>
+            <article class="research-theme research-theme--visual-left">
+              <figure class="research-visual research-visual--wide">
+                <img src="./assets/research/research-direction-1.svg?v=20260820r2" alt="Research overview of oxide-semiconductor ferroelectric devices and 3D ferroelectric vertical NAND" width="1136" height="620" loading="lazy" decoding="async" />
+              </figure>
+              <div class="research-theme-copy">
+                <p class="research-number">01</p>
+                <h3>Oxide-Semiconductor Devices &amp; 3D Ferroelectric Memory</h3>
+                <p>My research develops BEOL-compatible oxide-semiconductor devices and ferroelectric memories using IGZO, ZnO, and In<sub>2</sub>O<sub>3</sub> channels. My work spans high-performance FETs, planar OS FeFETs, and 3D ferroelectric vertical NAND, with emphasis on memory-window engineering, device scaling, endurance, and monolithic 3D integration.</p>
+              </div>
             </article>
-            <article class="research-theme">
-              <p class="research-number">02</p>
-              <h3>Device Physics, Reliability &amp; Modeling</h3>
-              <p>My work combines electrical characterization, physics-based analysis, TCAD, and compact and stochastic modeling to understand polarization switching, charge trapping, bias-stress instability, soft breakdown, and device variability. These studies translate device physics into predictive design rules for scalable oxide-semiconductor ferroelectric memories and arrays.</p>
+            <article class="research-theme research-theme--visual-right">
+              <figure class="research-visual research-visual--wide">
+                <img src="./assets/research/research-direction-2.svg?v=20260820r1" alt="Research overview of MFMIS FeFET modeling, bias-stress reliability, and variability" width="1136" height="619" loading="lazy" decoding="async" />
+              </figure>
+              <div class="research-theme-copy">
+                <p class="research-number">02</p>
+                <h3>Device Physics, Reliability &amp; Modeling</h3>
+                <p>My work combines electrical characterization, physics-based analysis, TCAD, and compact and stochastic modeling to understand polarization switching, charge trapping, bias-stress instability, soft breakdown, and device variability. These studies translate device physics into predictive design rules for scalable oxide-semiconductor ferroelectric memories and arrays.</p>
+              </div>
             </article>
-            <article class="research-theme">
-              <p class="research-number">03</p>
-              <h3>Compute-in-Memory &amp; Emerging Computing</h3>
-              <p>My research explores oxide-semiconductor and ferroelectric devices as computing primitives for energy-efficient compute-in-memory. My work spans charge-domain DRAM computing, associative memory and TCAM, ferroelectric neuron–synapse hardware, and monolithic electronic-photonic CiM, linking device innovation with array- and system-level functionality.</p>
+            <article class="research-theme research-theme--visual-left">
+              <figure class="research-visual research-visual--wide">
+                <img src="./assets/research/research-direction-3.svg?v=20260820r1" alt="Research overview of neuromorphic computing, associative computing, charge-domain computing, and monolithic 3D electronic-photonic compute-in-memory" width="1136" height="613" loading="lazy" decoding="async" />
+              </figure>
+              <div class="research-theme-copy">
+                <p class="research-number">03</p>
+                <h3>Compute-in-Memory &amp; Emerging Computing</h3>
+                <p>My research explores oxide-semiconductor and ferroelectric devices as computing primitives for energy-efficient compute-in-memory. My work spans charge-domain DRAM computing, associative memory and TCAM, ferroelectric neuron–synapse hardware, and monolithic electronic-photonic CiM, linking device innovation with array- and system-level functionality.</p>
+              </div>
             </article>
           </div>
 
