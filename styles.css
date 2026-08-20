@@ -343,134 +343,43 @@ a.paper-link-anchor:focus-visible,
   padding-block: 50px;
 }
 
-.research-intro {
-  max-width: 1080px;
-  margin: 16px 0 0;
-  color: var(--muted);
+.research-overview {
+  width: min(960px, 100%);
+  margin: 18px auto 0;
+}
+
+.research-overview-platform {
+  margin: 0;
+  color: var(--quiet);
   font-size: 17px;
-  line-height: 1.62;
-  text-align: justify;
-  text-align-last: left;
-  text-justify: inter-word;
-  hyphens: auto;
-}
-
-.research-roadmap {
-  width: min(1080px, 100%);
-  margin: 28px auto 0;
-}
-
-.roadmap-node {
-  width: min(900px, 82%);
-  margin-inline: auto;
-  padding: 13px 20px 12px;
-  border: 1px solid var(--line-subtle);
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  line-height: 1.4;
   text-align: center;
 }
 
-.roadmap-node h3,
-.roadmap-pillar h3 {
-  margin: 0;
-  font-size: 17.5px;
-  font-weight: 650;
-  letter-spacing: -0.012em;
-  line-height: 1.3;
-}
-
-.roadmap-node p {
-  margin: 4px 0 0;
-  color: var(--muted);
-  font-size: 13.5px;
-  line-height: 1.4;
-}
-
-.roadmap-outcome h3 {
-  color: var(--blue);
-}
-
-.roadmap-split,
-.roadmap-merge {
-  position: relative;
-  height: 28px;
-}
-
-.roadmap-split::before,
-.roadmap-split::after,
-.roadmap-merge::before,
-.roadmap-merge::after,
-.roadmap-pillar::before,
-.roadmap-pillar::after {
-  position: absolute;
-  content: "";
-  pointer-events: none;
-}
-
-.roadmap-split::before {
-  top: 0;
-  bottom: 14px;
-  left: 50%;
-  border-left: 1px solid var(--line-subtle);
-}
-
-.roadmap-split::after {
-  top: 14px;
-  right: 16.667%;
-  left: 16.667%;
-  border-top: 1px solid var(--line-subtle);
-}
-
-.roadmap-pillars {
+.research-overview-areas {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.roadmap-pillar {
-  position: relative;
-  min-height: 182px;
-  padding: 17px 26px 15px;
-  border-block: 1px solid var(--line-subtle);
-  text-align: center;
-}
-
-.roadmap-pillar + .roadmap-pillar {
-  border-left: 1px solid var(--line-subtle);
-}
-
-.roadmap-pillar::before {
-  top: -14px;
-  left: 50%;
-  height: 14px;
-  border-left: 1px solid var(--line-subtle);
-}
-
-.roadmap-pillar::after {
-  bottom: -14px;
-  left: 50%;
-  height: 14px;
-  border-left: 1px solid var(--line-subtle);
-}
-
-.roadmap-pillar ul {
+  gap: 14px;
   margin: 12px 0 0;
   padding: 0;
-  color: var(--muted);
-  font-size: 13.5px;
-  line-height: 1.55;
   list-style: none;
 }
 
-.roadmap-merge::before {
-  top: 14px;
-  right: 16.667%;
-  left: 16.667%;
-  border-top: 1px solid var(--line-subtle);
-}
-
-.roadmap-merge::after {
-  top: 14px;
-  bottom: 0;
-  left: 50%;
-  border-left: 1px solid var(--line-subtle);
+.research-overview-areas li {
+  display: grid;
+  place-items: center;
+  min-height: 60px;
+  padding: 9px 16px;
+  border: 1px solid var(--line-subtle);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.35);
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
 }
 
 .research-themes {
@@ -485,19 +394,12 @@ a.paper-link-anchor:focus-visible,
   grid-template-areas: "visual copy";
   align-items: center;
   column-gap: clamp(48px, 4vw, 56px);
-  padding-block: 56px;
-}
-
-.research-theme:first-child {
-  padding-top: 0;
 }
 
 .research-theme + .research-theme {
+  margin-top: 24px;
+  padding-top: 24px;
   border-top: 1px solid var(--line-subtle);
-}
-
-.research-theme:last-child {
-  padding-bottom: 0;
 }
 
 .research-theme--visual-right {
@@ -538,8 +440,7 @@ a.paper-link-anchor:focus-visible,
   min-width: 0;
 }
 
-.research-number,
-.research-subsection-label {
+.research-number {
   margin: 0;
   color: var(--blue);
   font-size: 12.5px;
@@ -556,8 +457,7 @@ a.paper-link-anchor:focus-visible,
   line-height: 1.3;
 }
 
-.research-theme-copy > p:last-child,
-.earlier-research > div > p {
+.research-theme-copy > p:last-child {
   margin: 0;
   color: var(--muted);
   font-size: 15.25px;
@@ -566,38 +466,6 @@ a.paper-link-anchor:focus-visible,
   text-align-last: left;
   text-justify: inter-word;
   hyphens: auto;
-}
-
-.earlier-research {
-  display: grid;
-  grid-template-columns: 150px minmax(0, 1fr);
-  gap: 28px;
-  margin-top: 30px;
-  padding-top: 18px;
-  border-top: 1px solid var(--line-subtle);
-}
-
-.earlier-research h3 {
-  margin: 0 0 4px;
-  font-size: 17.5px;
-  font-weight: 650;
-  letter-spacing: -0.012em;
-  line-height: 1.3;
-}
-
-.future-vision {
-  display: grid;
-  grid-template-columns: 150px minmax(0, 1fr);
-  gap: 28px;
-  margin-top: 21px;
-  padding-block: 3px;
-}
-
-.future-vision > p:last-child {
-  margin: 0;
-  color: var(--muted);
-  font-size: 15.25px;
-  line-height: 1.6;
 }
 
 .timeline {
@@ -924,24 +792,6 @@ a:focus-visible {
     font-size: 12.75px;
   }
 
-  .roadmap-node {
-    width: 86%;
-  }
-
-  .roadmap-pillar {
-    min-height: 180px;
-    padding-inline: 16px;
-  }
-
-  .roadmap-node h3,
-  .roadmap-pillar h3 {
-    font-size: 16.5px;
-  }
-
-  .roadmap-pillar ul {
-    font-size: 13px;
-  }
-
   .research-themes {
     margin-top: 34px;
   }
@@ -953,31 +803,19 @@ a:focus-visible {
       "visual"
       "copy";
     gap: 24px;
-    padding-block: 48px;
   }
 
-  .research-theme:first-child {
-    padding-top: 0;
-  }
-
-  .research-theme:last-child {
-    padding-bottom: 0;
+  .research-theme + .research-theme {
+    margin-top: 22px;
+    padding-top: 22px;
   }
 
   .research-theme h3 {
     font-size: 18px;
   }
 
-  .research-theme-copy > p:last-child,
-  .earlier-research > div > p,
-  .future-vision > p:last-child {
+  .research-theme-copy > p:last-child {
     font-size: 14.5px;
-  }
-
-  .earlier-research,
-  .future-vision {
-    grid-template-columns: 130px minmax(0, 1fr);
-    gap: 22px;
   }
 
   .publication {
@@ -1061,63 +899,6 @@ a:focus-visible {
     bottom: 0;
   }
 
-  .roadmap-node {
-    width: 100%;
-  }
-
-  .roadmap-split,
-  .roadmap-merge {
-    height: 18px;
-  }
-
-  .roadmap-split::before,
-  .roadmap-merge::after {
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    border-left: 1px solid var(--line-subtle);
-  }
-
-  .roadmap-split::after,
-  .roadmap-merge::before {
-    display: none;
-  }
-
-  .roadmap-pillars {
-    grid-template-columns: 1fr;
-    border-block: 1px solid var(--line-subtle);
-  }
-
-  .roadmap-pillar {
-    min-height: 0;
-    padding: 15px 18px;
-    border: 0;
-    text-align: left;
-  }
-
-  .roadmap-pillar + .roadmap-pillar {
-    border-top: 1px solid var(--line-subtle);
-    border-left: 0;
-  }
-
-  .roadmap-pillar::before,
-  .roadmap-pillar::after {
-    display: none;
-  }
-
-  .roadmap-pillar ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 3px 0;
-    margin-top: 7px;
-  }
-
-  .roadmap-pillar li:not(:last-child)::after {
-    margin: 0 7px;
-    color: var(--quiet);
-    content: "·";
-  }
-
   .research-themes {
     margin-top: 30px;
   }
@@ -1125,23 +906,17 @@ a:focus-visible {
   .research-theme,
   .research-theme--visual-right {
     gap: 20px;
-    padding-block: 40px;
   }
 
-  .research-theme:first-child {
-    padding-top: 0;
-  }
-
-  .research-theme:last-child {
-    padding-bottom: 0;
+  .research-theme + .research-theme {
+    margin-top: 20px;
+    padding-top: 20px;
   }
 }
 
 @media (max-width: 620px) {
   .about-copy p,
-  .research-intro,
   .research-theme-copy > p:last-child,
-  .earlier-research > div > p,
   .service-entry > p:not(.activity-label),
   .timeline .dissertation {
     text-align: left;
@@ -1183,35 +958,25 @@ a:focus-visible {
     padding-block: 42px;
   }
 
-  .research-intro {
-    margin-top: 14px;
+  .research-overview {
+    margin-top: 16px;
   }
 
-  .research-roadmap {
-    margin-top: 24px;
+  .research-overview-platform {
+    padding-inline: 10px;
+    font-size: 16.5px;
   }
 
-  .roadmap-node {
-    padding-inline: 14px;
-  }
-
-  .roadmap-node h3,
-  .roadmap-pillar h3 {
-    font-size: 16px;
-  }
-
-  .earlier-research,
-  .future-vision {
+  .research-overview-areas {
     grid-template-columns: 1fr;
-    gap: 6px;
+    gap: 9px;
+    margin-top: 11px;
   }
 
-  .earlier-research {
-    margin-top: 26px;
-  }
-
-  .future-vision {
-    margin-top: 19px;
+  .research-overview-areas li {
+    min-height: 50px;
+    padding: 8px 14px;
+    font-size: 15.5px;
   }
 
   .timeline article {
