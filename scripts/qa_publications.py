@@ -117,17 +117,25 @@ def main() -> None:
     assert "Full List" not in homepage
     assert '>View All Publications</a>' in homepage
     assert 'href="/publications/"' in homepage
+    assert '<a href="#publications">Publications</a>' in homepage
+    assert '<a href="../#publications" class="is-active">Publications</a>' in all_page
     assert 'Google Scholar <span aria-hidden="true">↗</span>' in all_page
     assert 'target="_blank" rel="noreferrer"' in all_page
     assert '<strong class="legend-selected">' not in all_page
-    assert 'id="publication-type-counts"' in all_page
+    assert 'id="publication-type-counts"' not in all_page
     assert 'link.textContent = "Online"' in renderer
     assert 'links.append("[", link, "]")' in renderer
+    assert 'const links = document.createElement("span")' in renderer
+    assert 'citation.append(document.createTextNode(" "), links)' in renderer
     assert 'journalArticle: "J"' in renderer
     assert 'conferencePaper: "C"' in renderer
+    assert 'journalArticle: typeCounts.journalArticle' in renderer
+    assert 'conferencePaper: typeCounts.conferencePaper' in renderer
+    assert 'typePositions[publication.itemType] -= 1' in renderer
     assert 'yearNavigation.setAttribute("aria-label", "Publication years")' in renderer
-    assert 'styles.css?v=20260821r40' in homepage
-    assert 'styles.css?v=20260821r40' in all_page
+    assert 'styles.css?v=20260821r41' in homepage
+    assert 'styles.css?v=20260821r41' in all_page
+    assert 'publications.js?v=20260821r5' in all_page
 
     print("Publication QA passed")
     print(f"  publications: {len(publications)}")

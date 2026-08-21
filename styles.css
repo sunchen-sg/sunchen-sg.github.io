@@ -849,14 +849,6 @@ a:focus-visible {
   font-size: 16px;
 }
 
-.publications-index-counts {
-  margin: 4px 0 0;
-  color: var(--blue);
-  font-size: 13px;
-  font-weight: 650;
-  letter-spacing: 0.01em;
-}
-
 .publications-scholar-link,
 .bibliography-links a {
   color: var(--blue);
@@ -1012,10 +1004,11 @@ a:focus-visible {
 }
 
 .bibliography-links {
-  margin: 5px 0 0;
+  float: right;
+  margin-left: 18px;
   color: var(--quiet);
   font-size: 12.5px;
-  line-height: 1.35;
+  line-height: inherit;
   text-align: right;
   white-space: nowrap;
 }
@@ -1226,10 +1219,6 @@ a:focus-visible {
   .publications-index-intro {
     margin-top: 8px;
     font-size: 15px;
-  }
-
-  .publications-index-counts {
-    margin-top: 3px;
   }
 
   .publications-scholar-link {

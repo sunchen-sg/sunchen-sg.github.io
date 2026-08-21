@@ -1,7 +1,6 @@
 (() => {
   const publications = window.PUBLICATIONS_DATA;
   const listRoot = document.querySelector("#all-publications-list");
-  const countRoot = document.querySelector("#publication-type-counts");
 
   if (!listRoot || !Array.isArray(publications)) return;
 
@@ -30,15 +29,20 @@
   const publicationNumbers = new Map();
 
   publications.forEach((publication) => {
-    const prefix = typePrefixes[publication.itemType];
-    if (!prefix) return;
-    typeCounts[publication.itemType] += 1;
-    publicationNumbers.set(publication.id, `${prefix}${typeCounts[publication.itemType]}`);
+    if (typePrefixes[publication.itemType]) typeCounts[publication.itemType] += 1;
   });
 
-  if (countRoot) {
-    countRoot.textContent = `${typeCounts.journalArticle} Journal · ${typeCounts.conferencePaper} Conference`;
-  }
+  const typePositions = {
+    journalArticle: typeCounts.journalArticle,
+    conferencePaper: typeCounts.conferencePaper,
+  };
+
+  publications.forEach((publication) => {
+    const prefix = typePrefixes[publication.itemType];
+    if (!prefix) return;
+    publicationNumbers.set(publication.id, `${prefix}${typePositions[publication.itemType]}`);
+    typePositions[publication.itemType] -= 1;
+  });
 
   const createCitation = (publication) => {
     const item = document.createElement("li");
@@ -77,10 +81,8 @@
       citation.append(role);
     }
 
-    item.append(citation);
-
     if (publication.url) {
-      const links = document.createElement("p");
+      const links = document.createElement("span");
       links.className = "bibliography-links";
       const link = document.createElement("a");
       link.href = publication.url;
@@ -89,8 +91,10 @@
       link.textContent = "Online";
       link.setAttribute("aria-label", `View ${publication.title} online`);
       links.append("[", link, "]");
-      item.append(links);
+      citation.append(document.createTextNode(" "), links);
     }
+
+    item.append(citation);
 
     return item;
   };
