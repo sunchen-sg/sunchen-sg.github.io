@@ -480,7 +480,7 @@ a.paper-link-anchor:focus-visible,
 .research-theme h3 {
   margin: 0 0 8px;
   color: var(--blue);
-  font-size: var(--text-group-heading);
+  font-size: calc(var(--text-group-heading) - 1px);
   font-weight: var(--weight-semibold);
   letter-spacing: -0.016em;
   line-height: var(--leading-heading);
