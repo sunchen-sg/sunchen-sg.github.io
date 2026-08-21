@@ -963,7 +963,6 @@ a:focus-visible {
 
 @media (max-width: 620px) {
   .about-copy p,
-  .research-theme-description,
   .service-entry > p:not(.activity-label),
   .timeline .dissertation {
     text-align: left;
