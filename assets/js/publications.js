@@ -18,6 +18,28 @@
     });
   };
 
+  const appendTitleMarkup = (parent, value) => {
+    const source = String(value);
+    const markupPattern = /<(sub|sup)>([^<>]*)<\/\1>/gi;
+    let cursor = 0;
+    let match;
+
+    while ((match = markupPattern.exec(source)) !== null) {
+      if (match.index > cursor) {
+        parent.append(document.createTextNode(source.slice(cursor, match.index)));
+      }
+
+      const annotation = document.createElement(match[1].toLowerCase());
+      annotation.textContent = match[2];
+      parent.append(annotation);
+      cursor = match.index + match[0].length;
+    }
+
+    if (cursor < source.length) {
+      parent.append(document.createTextNode(source.slice(cursor)));
+    }
+  };
+
   const typePrefixes = {
     journalArticle: "J",
     conferencePaper: "C",
@@ -64,7 +86,9 @@
     appendAnnotatedText(sunAuthor, publication.sunAuthor);
     citation.append(sunAuthor);
     appendAnnotatedText(citation, publication.authorsSuffix);
-    citation.append(document.createTextNode(`, “${publication.title},” `));
+    citation.append(document.createTextNode(", “"));
+    appendTitleMarkup(citation, publication.titleMarkup || publication.title);
+    citation.append(document.createTextNode(",” "));
 
     if (publication.lead) {
       citation.append(document.createTextNode(`${publication.lead} `));

@@ -1066,11 +1066,19 @@ a:focus-visible {
   font-size: inherit;
 }
 
+.bibliography-citation sub,
 .bibliography-citation sup {
   position: relative;
-  top: -0.15em;
   font-size: 0.7em;
   line-height: 0;
+}
+
+.bibliography-citation sub {
+  top: 0.18em;
+}
+
+.bibliography-citation sup {
+  top: -0.15em;
 }
 
 .publications-legend sup {

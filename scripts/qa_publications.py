@@ -21,6 +21,30 @@ EXPECTED_YEAR_COUNTS = {
     2020: 5,
     2019: 3,
 }
+EXPECTED_RICH_TITLE_IDS = {
+    "R2A6NJL9",
+    "RUTVY5FY",
+    "386GWUTQ",
+    "NT5RUNMJ",
+    "K2H825ZQ",
+    "R9MZY56I",
+    "YHWX73QB",
+    "NJNDFIVK",
+    "VLTP2VHM",
+    "3LBWMQEY",
+    "RYU5VTT2",
+    "8EPV8XCE",
+    "XM8Q7FJK",
+    "D9YJK5SJ",
+    "U4FN2CCK",
+    "3EQDJWKS",
+    "ILL4W5FH",
+    "4IE5PHLZ",
+    "AGLV28NF",
+    "VQAYVQEP",
+    "BTTHKKHI",
+    "PQKZYR55",
+}
 
 
 class SiteParser(HTMLParser):
@@ -97,6 +121,14 @@ def main() -> None:
     assert sum(publication["authorsPrefix"].count("*") + publication["sunAuthor"].count("*") + publication["authorsSuffix"].count("*") for publication in publications) == 12
     assert sum(publication["authorsPrefix"].count("#") + publication["sunAuthor"].count("#") + publication["authorsSuffix"].count("#") for publication in publications) == 12
 
+    rich_titles = [publication for publication in publications if publication.get("titleMarkup")]
+    assert {publication["id"] for publication in rich_titles} == EXPECTED_RICH_TITLE_IDS
+    for publication in rich_titles:
+        title_markup = publication["titleMarkup"]
+        plain_title = re.sub(r"</?(?:sub|sup)>", "", title_markup)
+        assert not re.search(r"</?[A-Za-z]", plain_title), f'Unsupported title markup: {publication["id"]}'
+        assert plain_title == publication["title"], f'Title markup text mismatch: {publication["id"]}'
+
     for publication in publications:
         if publication["url"]:
             parsed = urlsplit(publication["url"])
@@ -133,11 +165,14 @@ def main() -> None:
     assert 'conferencePaper: typeCounts.conferencePaper' in renderer
     assert 'typePositions[publication.itemType] -= 1' in renderer
     assert 'yearNavigation.setAttribute("aria-label", "Publication years")' in renderer
-    assert 'styles.css?v=20260821r51' in homepage
-    assert 'styles.css?v=20260821r51' in all_page
+    assert 'styles.css?v=20260821r52' in homepage
+    assert 'styles.css?v=20260821r52' in all_page
+    assert 'publications.js?v=20260821r8' in all_page
+    assert 'data/publications.js?v=20260821r2' in all_page
+    assert "appendTitleMarkup(citation, publication.titleMarkup || publication.title)" in renderer
+    assert "innerHTML" not in renderer
     assert 'event.preventDefault()' in renderer
     assert 'scrollIntoView({' in renderer
-    assert 'publications.js?v=20260821r7' in all_page
 
     print("Publication QA passed")
     print(f"  publications: {len(publications)}")
