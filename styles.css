@@ -23,7 +23,7 @@
   --text-group-heading: clamp(20px, 1.8vw, 22px);
   --text-section: clamp(30px, 3vw, 32px);
   --text-tagline: clamp(20px, 2vw, 21px);
-  --text-hero: clamp(42px, 5vw, 54px);
+  --text-hero: clamp(40px, 4.8vw, 52px);
 
   /* Line heights */
   --leading-tight: 1.16;
@@ -1234,7 +1234,7 @@ a:focus-visible {
     --text-group-heading: clamp(18px, 5vw, 20px);
     --text-section: clamp(28px, 7.5vw, 30px);
     --text-tagline: clamp(18px, 5vw, 19px);
-    --text-hero: clamp(40px, 11vw, 44px);
+    --text-hero: clamp(38px, 10.5vw, 42px);
   }
 
   .service-entry > p:not(.activity-label),

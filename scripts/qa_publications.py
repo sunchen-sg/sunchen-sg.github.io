@@ -133,8 +133,8 @@ def main() -> None:
     assert 'conferencePaper: typeCounts.conferencePaper' in renderer
     assert 'typePositions[publication.itemType] -= 1' in renderer
     assert 'yearNavigation.setAttribute("aria-label", "Publication years")' in renderer
-    assert 'styles.css?v=20260821r48' in homepage
-    assert 'styles.css?v=20260821r48' in all_page
+    assert 'styles.css?v=20260821r49' in homepage
+    assert 'styles.css?v=20260821r49' in all_page
     assert 'event.preventDefault()' in renderer
     assert 'scrollIntoView({' in renderer
     assert 'publications.js?v=20260821r7' in all_page
