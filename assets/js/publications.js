@@ -130,7 +130,12 @@
     group.className = "bibliography-year-group";
     group.id = `publications-${year}`;
     group.dataset.year = String(year);
-    group.setAttribute("aria-labelledby", `publication-year-link-${year}`);
+
+    const heading = document.createElement("h2");
+    heading.className = "bibliography-year-heading";
+    heading.id = `publication-year-heading-${year}`;
+    heading.textContent = String(year);
+    group.setAttribute("aria-labelledby", heading.id);
 
     const entries = document.createElement("ol");
     entries.className = "bibliography-list";
@@ -138,7 +143,7 @@
       .filter((publication) => publication.year === year)
       .forEach((publication) => entries.append(createCitation(publication)));
 
-    group.append(entries);
+    group.append(heading, entries);
     yearGroups.append(group);
     groups.push(group);
   });
@@ -188,7 +193,17 @@
   };
 
   yearLinks.forEach((link, year) => {
-    link.addEventListener("click", () => setActiveYear(year));
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      setActiveYear(year);
+      document.getElementById(`publications-${year}`)?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+      if (window.location.hash) {
+        window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+      }
+    });
   });
   window.addEventListener("scroll", queueActiveYearUpdate, { passive: true });
   window.addEventListener("resize", queueActiveYearUpdate);
