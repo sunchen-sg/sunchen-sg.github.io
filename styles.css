@@ -22,7 +22,7 @@
   --text-item-title: clamp(18px, 1.6vw, 19px);
   --text-group-heading: clamp(20px, 1.8vw, 22px);
   --text-section: clamp(30px, 3vw, 32px);
-  --text-tagline: clamp(21px, 2vw, 22px);
+  --text-tagline: clamp(20px, 2vw, 21px);
   --text-hero: clamp(42px, 5vw, 54px);
 
   /* Line heights */
@@ -255,7 +255,7 @@ h2 {
   max-width: 880px;
   margin-top: 19px;
   color: var(--muted);
-  font-size: var(--text-body-lg);
+  font-size: var(--text-body);
   line-height: var(--leading-relaxed);
 }
 
@@ -1233,7 +1233,7 @@ a:focus-visible {
     --text-item-title: clamp(17px, 4.6vw, 18px);
     --text-group-heading: clamp(18px, 5vw, 20px);
     --text-section: clamp(28px, 7.5vw, 30px);
-    --text-tagline: clamp(19px, 5vw, 20px);
+    --text-tagline: clamp(18px, 5vw, 19px);
     --text-hero: clamp(40px, 11vw, 44px);
   }
 
