@@ -92,6 +92,8 @@
     if (!window.location.hash) return;
     const initialTarget = document.querySelector(window.location.hash);
     if (initialTarget) {
+      requestedSectionId = initialTarget.id;
+      setActiveLink(requestedSectionId);
       requestAnimationFrame(() => {
         window.scrollTo({ top: destinationFor(initialTarget), behavior: "auto" });
         cleanUrl();
